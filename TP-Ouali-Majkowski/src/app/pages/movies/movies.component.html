@@ -1,1 +1,15 @@
+<form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <div>
+      Titre : <input type="text" name="titre" [(ngModel)]="addedTitle">
+    </div>
+    <div>
+      Image : <input type="text" name="img" [(ngModel)]="addedImg">
+    </div>
+
+    <div>
+      Synopsis : <input type="text" name="synopsis" [(ngModel)]="addedSynopsis">
+    </div>
+
+    <button class="button" type="submit">Ajouter</button>
+  </form>
 <app-movie *ngFor="let movie of colMovies" [movie]="movie"></app-movie>

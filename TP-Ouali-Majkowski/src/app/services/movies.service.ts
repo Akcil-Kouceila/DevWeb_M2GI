@@ -8,6 +8,7 @@ import { Movie } from '../models/movie.model';
 })
 export class MoviesService {
 
+  addedMovie: Movie;
   constructor() { }
 
   public getAllMovies(): Promise<Movie[]> {
