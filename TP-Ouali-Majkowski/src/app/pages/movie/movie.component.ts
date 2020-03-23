@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Movie } from 'src/app/Movie';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-movie',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  constructor() { }
+  @Input() movie: Movie;
+  
+  constructor(private mmService: MoviesService) { }
 
   ngOnInit(): void {
+    this.movie = this.mmService.findOneAtRandom();
   }
 
 }
