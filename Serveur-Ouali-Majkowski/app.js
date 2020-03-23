@@ -7,27 +7,25 @@ var port = 3000;
 var app = express();
 
 var myRouter = express.Router(); 
+
+// Route principale
+myRouter.route('/')
+.all(function(req,res){ 
+      res.json({message : "API works !", methode : req.method});
+});
  
 // Route movies
 myRouter.route('/movies')
-
-// GET
-.get(function(req, res){ 
+.get(function(req, res) { // Get
 	  res.json({message : 'Liste de tous les films', methode : req.method});
 })
-
-//POST
-.post(function(req, res){
+.post(function(req, res) { // Post
       res.json({message : 'Ajoute un film', methode : req.method});
 })
-
-//PUT
-.put(function(req, res){ 
+.put(function(req, res) { // Put
       res.json({message : 'Met à jour un film', methode : req.method});
 })
-
-//DELETE
-.delete(function(req, res){ 
+.delete(function(req, res) { // Delete
 res.json({message : 'Supprime un film', methode : req.method});  
 }); 
  
