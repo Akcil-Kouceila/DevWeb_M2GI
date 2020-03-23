@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
+
 import { Movie } from 'src/app/Movie';
 
 @Component({
@@ -13,8 +14,9 @@ export class MoviesComponent implements OnInit {
 
   constructor(private mService: MoviesService) { }
 
-  ngOnInit(): void {
-    this.colMovies = this.mService.findAll();
+  ngOnInit() {
+    this.mService.getAllMovies().subscribe(data => {
+      this.colMovies = data;
+    });
   }
-
 }

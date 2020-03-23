@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import { Movie } from '../Movie';
+import { Observable, of } from 'rxjs';
+import { MOVIES } from 'src/assets/movies.mock';
+import { Movie } from '../models/movie.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,26 +10,15 @@ export class MoviesService {
 
   constructor() { }
 
-  private movies: Movie[] =  [
-    {
-      title: 'Lololol',
-      img: 'Immgmgmgmg',
-      synopsis: 'test'
-    },
-    {
-      title: 'ahahahah',
-      img: 'sdkqsjdkllqsdjkqs',
-      synopsis: 'dsy,pdsqdjkol'
-    }
-  ]
-
-  findAll(): Movie[]{
-    return this.movies;
+  public getAllMovies(): Observable<Movie[]> {
+    return of(MOVIES);
   }
 
-  findOneAtRandom(): Movie{
-    return this.movies[Math.floor(Math.random() * this.movies.length)];
+  findOneAtRandom(): Observable<Movie> {
+    var allmovies;
+    this.getAllMovies().subscribe(data => {
+      allmovies = data;
+    })
+    return allmovies[Math.floor(Math.random() * allmovies.length)];
   }
-
-
 }
