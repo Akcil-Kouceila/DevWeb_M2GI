@@ -15,7 +15,7 @@ export class MovieComponent implements OnInit {
   constructor(private mService: MoviesService) { }
 
   ngOnInit() {
-    this.mService.findOneAtRandom().subscribe(data => {
+    this.mService.findOneAtRandom().then(data => {
       this.movie = data;
     });
   }

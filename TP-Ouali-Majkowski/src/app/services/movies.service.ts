@@ -14,11 +14,21 @@ export class MoviesService {
     return of(MOVIES);
   }
 
-  findOneAtRandom(): Observable<Movie> {
-    var allmovies;
-    this.getAllMovies().subscribe(data => {
-      allmovies = data;
-    })
-    return allmovies[Math.floor(Math.random() * allmovies.length)];
+  public async findOneAtRandom() {
+    let result;
+    await this.getAllMovies().subscribe(data => {
+      result = data[Math.floor(Math.random() * data.length)];
+    });
+    return result;
   }
 }
+
+
+/*
+
+public async getAllMovies() {
+  const result = await of(MOVIES).toPromise();
+  return result;
+}
+
+*/
