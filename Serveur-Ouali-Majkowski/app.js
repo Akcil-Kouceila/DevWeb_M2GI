@@ -17,10 +17,17 @@ myRouter.route('/')
 // Route movies
 myRouter.route('/movies')
 .get(function(req, res) { // Get
-	  res.json({message : 'Liste de tous les films', methode : req.method});
+	res.status(200).send({
+        success: 'true',
+        message: 'movies retrieved successfully',
+        movies: db
+      })
 })
-.post(function(req, res) { // Post
-      res.json({message : 'Ajoute un film', methode : req.method});
+.post(function(req,res) { // Post
+    res.json({message : 'Film ajouté', 
+    title : req.body.title,
+    synopsis : req.body.synopsis,
+    img : req.img});
 })
 .put(function(req, res) { // Put
       res.json({message : 'Met à jour un film', methode : req.method});
@@ -45,3 +52,7 @@ app.use(myRouter);
 app.listen(port, hostname, function(){
 	console.log('Serveur start < http://' + hostname + ':' + port + ' >'); 
 });
+
+var bodyParser = require("body-parser"); 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());

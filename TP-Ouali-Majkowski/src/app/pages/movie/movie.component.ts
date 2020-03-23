@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies.service';
-
 import { Movie } from 'src/app/Movie';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-movie',
@@ -19,5 +18,4 @@ export class MovieComponent implements OnInit {
       this.movie = data;
     });
   }
-
 }

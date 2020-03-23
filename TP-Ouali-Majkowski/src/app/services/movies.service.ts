@@ -10,13 +10,13 @@ export class MoviesService {
 
   constructor() { }
 
-  public getAllMovies(): Observable<Movie[]> {
-    return of(MOVIES);
+  public getAllMovies(): Promise<Movie[]> {
+    return of(MOVIES).toPromise();
   }
 
   public async findOneAtRandom() {
     let result;
-    await this.getAllMovies().subscribe(data => {
+    await this.getAllMovies().then(data => {
       result = data[Math.floor(Math.random() * data.length)];
     });
     return result;
