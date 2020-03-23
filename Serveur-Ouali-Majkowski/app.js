@@ -11,7 +11,7 @@ var myRouter = express.Router();
 // Route principale
 myRouter.route('/')
 .all(function(req,res){ 
-      res.json({message : "API works !", methode : req.method});
+      res.json({message : 'API works !', methode : req.method});
 });
  
 // Route movies
@@ -27,10 +27,21 @@ myRouter.route('/movies')
 })
 .delete(function(req, res) { // Delete
 res.json({message : 'Supprime un film', methode : req.method});  
-}); 
- 
+});
+
+// Accès par identifiant
+myRouter.route('/movies/:id')
+.get(function(req,res) { // Get
+	  res.json({message : ' Get movie > ' + req.params.piscine_id});
+})
+.put(function(req,res) { // Put
+	  res.json({message : ' Put movie > ' + req.params.piscine_id});
+})
+.delete(function(req,res) { // Delete
+	  res.json({message : ' Delete > ' + req.params.piscine_id});
+});
 
 app.use(myRouter);  
 app.listen(port, hostname, function(){
-	console.log('Serveur start < http://' + hostname + ':' + port + '>'); 
+	console.log('Serveur start < http://' + hostname + ':' + port + ' >'); 
 });
