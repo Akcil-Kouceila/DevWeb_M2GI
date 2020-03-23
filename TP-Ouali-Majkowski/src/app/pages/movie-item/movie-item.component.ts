@@ -3,11 +3,11 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { Movie } from 'src/app/models/movie.model';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  selector: 'app-movie-item',
+  templateUrl: './movie-item.component.html',
+  styleUrls: ['./movie-item.component.scss']
 })
-export class MovieComponent implements OnInit {
+export class MovieItemComponent implements OnInit {
 
   @Input() movie: Movie;
   @Output() delete: EventEmitter<Movie>;
@@ -17,9 +17,6 @@ export class MovieComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mService.findOneAtRandom().then(data => {
-      this.movie = data;
-    });
   }
 
   deleteMovie() {

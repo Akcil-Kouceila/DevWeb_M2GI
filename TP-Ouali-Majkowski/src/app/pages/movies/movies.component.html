@@ -13,4 +13,4 @@
 
     <button class="button" type="submit">Ajouter</button>
   </form>
-  <app-movie *ngFor="let movie of colMovies" [movie]="movie" (todelete)="deleteMovie($event)"></app-movie>
+  <app-movie-item *ngFor="let movie of colMovies" [movie]="movie" (todelete)="deleteMovie($event)"></app-movie-item>

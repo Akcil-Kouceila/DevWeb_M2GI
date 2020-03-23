@@ -33,7 +33,7 @@ export class MoviesComponent implements OnInit {
   }
 
   deleteMovie(movie: Movie) {
-    console.log('DELETE MOVIESSSS')
-    this.mService.deleteMovie(movie)
+    console.log('DELETE MOVIESSSS');
+    this.mService.deleteMovie(movie);
   }
 }
