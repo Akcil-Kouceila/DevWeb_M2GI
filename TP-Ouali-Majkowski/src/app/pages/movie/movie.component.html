@@ -1,6 +1,7 @@
 <div class="card">
-    <p> {{ movie.title }}</p>
-    <p> {{ movie.img }} </p>
+    <h2><p>  {{ movie.title }} </p></h2>
+    <img height="200" src="{{movie.img}}"/>
+    <p> {{ movie.synopsis }} </p>
 </div>
 <button type="button" >Modifier</button>
-<button type="button" (click)="deleteMovie()">Supprimer</button>
+<button type="button" >Supprimer</button>
