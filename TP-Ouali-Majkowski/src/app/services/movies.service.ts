@@ -8,8 +8,13 @@ import { Movie } from '../models/movie.model';
 })
 export class MoviesService {
 
+  addedMovie: Movie;
   constructor() { }
 
+  onSubmit(form: any)
+  {
+
+  }
   public getAllMovies(): Observable<Movie[]> {
     return of(MOVIES);
   }
