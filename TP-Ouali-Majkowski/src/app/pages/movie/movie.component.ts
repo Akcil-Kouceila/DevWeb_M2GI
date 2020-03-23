@@ -12,7 +12,7 @@ export class MovieComponent implements OnInit {
   @Input() movie: Movie;
   @Output() delete: EventEmitter<Movie>;
 
-  constructor(private mService: MoviesService) { 
+  constructor(private mService: MoviesService) {
     this.delete = new EventEmitter<Movie>();
   }
 
@@ -21,7 +21,9 @@ export class MovieComponent implements OnInit {
       this.movie = data;
     });
   }
+
   deleteMovie() {
-    this.delete.emit(this.movie);
+    console.log('DELETE MOVIE')
+    this.mService.deleteMovie(this.movie)
   }
 }

@@ -31,4 +31,9 @@ export class MoviesComponent implements OnInit {
     this.colMovies.push(this.addedMovie);
     this.addedMovie = this.addedMovie2;
   }
+
+  deleteMovie(movie: Movie) {
+    console.log('DELETE MOVIESSSS')
+    this.mService.deleteMovie(movie)
+  }
 }

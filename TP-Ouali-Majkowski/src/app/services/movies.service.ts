@@ -22,14 +22,8 @@ export class MoviesService {
     });
     return result;
   }
+
+  public deleteMovie(movie: Movie) {
+    MOVIES.splice(MOVIES.indexOf(movie), 1);
+  }
 }
-
-
-/*
-
-public async getAllMovies() {
-  const result = await of(MOVIES).toPromise();
-  return result;
-}
-
-*/
