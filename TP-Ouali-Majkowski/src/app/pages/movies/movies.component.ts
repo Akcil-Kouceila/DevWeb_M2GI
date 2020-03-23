@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
-import { Movie } from 'src/app/Movie';
+import { Movie } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'app-movies',
@@ -14,7 +14,7 @@ export class MoviesComponent implements OnInit {
   addedImg: string;
   addedSynopsis: string;
   addedMovie: Movie = {id: "", title: "", synopsis: "", img: ""};
-  emptyMovie: Movie;
+  addedMovie2: Movie = { id: "", title: "", synopsis: "", img: ""};
 
   constructor(private mService: MoviesService) { }
 
@@ -29,6 +29,6 @@ export class MoviesComponent implements OnInit {
     this.addedMovie.img = this.addedImg;
     this.addedSynopsis = this.addedSynopsis;
     this.colMovies.push(this.addedMovie);
-    this.addedMovie = this.emptyMovie;
+    this.addedMovie = this.addedMovie2;
   }
 }
