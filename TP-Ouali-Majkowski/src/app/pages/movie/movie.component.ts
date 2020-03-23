@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
 import { Movie } from 'src/app/models/movie.model';
 
@@ -10,12 +10,18 @@ import { Movie } from 'src/app/models/movie.model';
 export class MovieComponent implements OnInit {
 
   @Input() movie: Movie;
+  @Output() delete: EventEmitter<Movie>;
 
-  constructor(private mService: MoviesService) { }
+  constructor(private mService: MoviesService) { 
+    this.delete = new EventEmitter<Movie>();
+  }
 
   ngOnInit() {
     this.mService.findOneAtRandom().then(data => {
       this.movie = data;
     });
+  }
+  deleteMovie() {
+    this.delete.emit(this.movie);
   }
 }
