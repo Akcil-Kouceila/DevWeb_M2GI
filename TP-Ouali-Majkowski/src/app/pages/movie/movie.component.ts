@@ -26,4 +26,8 @@ export class MovieComponent implements OnInit {
     console.log('DELETE MOVIE');
     this.mService.deleteMovie(this.movie);
   }
+
+  refresh() {
+    window.location.reload();
+  }
 }

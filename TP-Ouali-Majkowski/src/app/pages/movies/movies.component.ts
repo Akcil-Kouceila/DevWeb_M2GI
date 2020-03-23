@@ -27,7 +27,7 @@ export class MoviesComponent implements OnInit {
   onSubmit(form: any) {
     this.addedMovie.title = this.addedTitle;
     this.addedMovie.img = this.addedImg;
-    this.addedSynopsis = this.addedSynopsis;
+    this.addedMovie.synopsis = this.addedSynopsis;
     this.colMovies.push(this.addedMovie);
     this.addedMovie = this.addedMovie2;
   }
