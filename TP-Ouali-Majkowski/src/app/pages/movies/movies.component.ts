@@ -13,8 +13,8 @@ export class MoviesComponent implements OnInit {
   addedTitle: string;
   addedImg: string;
   addedSynopsis: string;
-  addedMovie: Movie = {id: "", title: "", synopsis: "", img: ""};
-  addedMovie2: Movie = { id: "", title: "", synopsis: "", img: ""};
+  addedMovie: Movie = {id: '', title: '', synopsis: '', img: ''};
+  addedMovie2: Movie = { id: '', title: '', synopsis: '', img: ''};
 
   constructor(private mService: MoviesService) { }
 
